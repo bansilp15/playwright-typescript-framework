@@ -16,7 +16,7 @@ export default defineConfig({
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         baseURL: "https://automationintesting.online",
-        headless: false,
+        headless: true,
         viewport: { width: 1280, height: 720 },
         trace: "retain-on-failure",
         video: "retain-on-failure"
