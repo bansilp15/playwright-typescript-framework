@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8720","Verify Contact Information","chromium","2026-01-16","passed","2026-01-16","","verifyHomepage.spec.ts","",""
+"","9944","Verify HomePage text","chromium","2026-01-16","passed","2026-01-16","","verifyHomepage.spec.ts","",""
+"","11331","Verify able to change Check in and Check out dates","chromium","2026-01-16","failed","2026-01-16","","verifyHomepage.spec.ts","",""
