@@ -61,10 +61,18 @@ test('Verify able to change Check in and Check out dates', async ({ page }) => {
     await page.waitForTimeout(5000);
 
     await test.step('Verify correct check in and check out dates are set', async() => {
-        console.log(new Date().getDate() + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear());
-        console.log((new Date().getDate() + 1)+ '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear());
-        await expect(await homePage.getCheckInDate()).toEqual(new Date().getDate() + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear());  
-        await expect(await homePage.getCheckOutDate()).toEqual((new Date().getDate()+1) + '/' + (new Date().getMonth()+1) + '/' + new Date().getFullYear());
+        const today = new Date();
+        const day = today.getDate();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const expectedCheckIn = `${day}/${month}/${year}`;
+        const expectedCheckOut = `${day + 1}/${month}/${year}`;
+        
+        console.log('Expected Check-in:', expectedCheckIn);
+        console.log('Expected Check-out:', expectedCheckOut);
+        
+        await expect(await homePage.getCheckInDate()).toEqual(expectedCheckIn);  
+        await expect(await homePage.getCheckOutDate()).toEqual(expectedCheckOut);
     });
 
     await test.step('Click Book Now button', async() =>{
